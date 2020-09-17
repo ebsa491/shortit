@@ -12,6 +12,9 @@ class UrlAPI:
 
     def request_short_url(self):
         
-        result = requests.get(properties.API_URL + self.__long_url)
-        
+        try:
+            result = requests.get(properties.API_URL + self.__long_url)
+        except ConnectionError as err:
+            return -1, err
+
         return result
