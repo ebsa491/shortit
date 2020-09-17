@@ -16,8 +16,10 @@ class UrlAPI:
 
     def request_short_url(self):
         
+        prarams = {properties.API_PARAM: self.__long_url}
+
         try:
-            result = requests.get(properties.API_URL + self.__long_url)
+            result = requests.post(properties.API_URL, data = prarams)
         except ConnectionError as err:
             return -1, err
 
