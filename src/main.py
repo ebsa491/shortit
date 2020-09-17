@@ -3,27 +3,25 @@
 
 import sys
 
-class ShortIt:
-    """shortit main class."""
+def main():
+    """The main function of the program."""
 
-    def __init__(self):
-        """ __init__ """
+    args = check_args()
 
-        self.program_args = ""
+    if args == -1:
+        print("USAGE: shortit URL")
+        sys.exit(-1)
 
-        self.__check_args()
+def check_args():
+    """
+    This method checks the program's arguments count.
+    If arguments were correct, sets self.program_args = \" \".join(sys.argv[1:]).
+    """
 
-    def __check_args(self):
-        """
-        This method checks the program's arguments count.
-        If arguments were correct, sets self.program_args = \" \".join(sys.argv[1:]).
-        """
-
-        if len(sys.argv) > 1:
-            self.program_args = " ".join(sys.argv[1:])
-        else:
-            print("USAGE: shortit URL")
-            sys.exit(1)
+    if len(sys.argv) > 1:
+        return " ".join(sys.argv[1:])
+    else:
+        return -1
 
 if __name__ == '__main__':
-    app = ShortIt()
+    main()
