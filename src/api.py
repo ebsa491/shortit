@@ -1,7 +1,7 @@
 """API module for connecting and preparing results."""
 
 import requests
-from properties import API_URL, API_PARAM
+from properties import API_URL, API_PARAM # Useful for the requests
 from bs4 import BeautifulSoup
 
 class UrlAPI:
@@ -34,6 +34,9 @@ class UrlAPI:
     def extract_data_from_html(self, html_page):
         """This method parses the html text and finds the input tag with id=\'shortenurl\' for shorten url."""
         
+        # Response sample =>
+        # <input id="shortenurl" onclick="this.select();" type="text" value="shorturl.at/SOME_CODE"/> 
+
         soup = BeautifulSoup(html_page, 'html.parser')
         input_tag = soup.find("input", attrs={"id": "shortenurl"})
         
