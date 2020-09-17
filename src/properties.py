@@ -1,4 +1,5 @@
 """Static values are here."""
 
-API_URL = "https://tinyurl.com/create.php?url="
-# Thanks, Tiny URL
+API_URL = "https://www.shorturl.at/shortener.php"
+API_PARAM = "u="
+# Thanks, www.shorturl.at
