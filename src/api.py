@@ -1,7 +1,7 @@
 """API module for connecting and preparing results."""
 
 import requests
-import properties
+from properties import API_URL, API_PARAM
 from bs4 import BeautifulSoup
 
 class UrlAPI:
@@ -22,10 +22,10 @@ class UrlAPI:
     def request_short_url(self):
         """This method sends a POST request to the API and returns the result text."""
         
-        prarams = {properties.API_PARAM: self.__long_url}
+        prarams = {API_PARAM: self.__long_url}
 
         try:
-            result = requests.post(properties.API_URL, data = prarams)
+            result = requests.post(API_URL, data = prarams)
         except ConnectionError as err:
             return -1, err
 
