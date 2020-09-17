@@ -3,6 +3,7 @@
 
 import sys
 import api
+from properties import RED_COLOR, GREEN_COLOR, NO_COLOR
 
 def main():
     """The main function of the program."""
@@ -10,7 +11,7 @@ def main():
     args = check_args()
 
     if args == -1:
-        print("USAGE: shortit URL")
+        print(f"[{RED_COLOR}-{NO_COLOR}] USAGE: shortit URL")
         sys.exit(1)
         return
     
@@ -20,7 +21,7 @@ def main():
     response_stauts, result = api_manager.request_short_url()
 
     if response_stauts == -1:
-        print("Error in connecting to the API server...")
+        print(f"[{RED_COLOR}-{NO_COLOR}] Error in connecting to the API server...")
         ans = input("Do you want to know the error? [Y/n] ")
         if ans.lower() != 'n':
             print(result)
@@ -31,7 +32,7 @@ def main():
     api_manager.extract_data_from_html(result)
 
     print("=========================")
-    print(api_manager.get_short_url())
+    print(GREEN_COLOR + api_manager.get_short_url() + NO_COLOR)
     print("=========================")
 
     sys.exit(0)
