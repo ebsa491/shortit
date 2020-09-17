@@ -29,7 +29,7 @@ class UrlAPI:
         except ConnectionError as err:
             return -1, err
 
-        return result
+        return 1, result
 
     def extract_data_from_html(self, html_page):
         """This method parses the html text and finds the input tag with id=\'shortenurl\' for shorten url."""
