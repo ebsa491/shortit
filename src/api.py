@@ -36,4 +36,9 @@ class UrlAPI:
         
         soup = BeautifulSoup(html_page, 'html.parser')
         input_tag = soup.find("input", attrs={"id": "shortenurl"})
-        self.__short_url = input_tag.attrs["value"]
+        
+        try:
+            self.__short_url = input_tag.attrs["value"]
+            return 1
+        except:
+            return -1

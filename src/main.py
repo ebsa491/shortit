@@ -29,7 +29,10 @@ def main():
         sys.exit(1)
         return
     
-    api_manager.extract_data_from_html(result)
+    if api_manager.extract_data_from_html(result) == -1:
+        print(f"[{RED_COLOR}-{NO_COLOR}] Error in parsing the response...")
+        sys.exit(1)
+        return
 
     print("=========================")
     print(GREEN_COLOR + api_manager.get_short_url() + NO_COLOR)
